@@ -1,5 +1,5 @@
 <svg
-  class="light-icon-favicon"
+  class="light-icon"
   width="22"
   height="22"
   viewBox="0 0 22 22"
@@ -44,11 +44,4 @@
     d="M5.16632 17.8943C5.45921 17.6014 5.45921 17.1265 5.16632 16.8336C4.87342 16.5407 4.39855 16.5407 4.10566 16.8336L3.39855 17.5407C3.10566 17.8336 3.10566 18.3085 3.39855 18.6014C3.69144 18.8943 4.16632 18.8943 4.45921 18.6014L5.16632 17.8943Z"
     fill="currentColor"
   />
-  <style>
-    @media (prefers-color-scheme: dark) {
-      .light-icon-favicon {
-        display: none;
-      }
-    }
-  </style>
 </svg>
