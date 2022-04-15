@@ -1,0 +1,124 @@
+/** DEFINING THE COLOR SCHEME */
+
+* {
+  --brand-hue: 39;
+  --brand-saturation: 80%;
+  --brand-lightness: 56%;
+
+  --brand-light: hsl(
+    var(--brand-hue) var(--brand-saturation) var(--brand-lightness)
+  );
+  --surface-light: hsl(var(--brand-hue) 20% 99%);
+
+  --brand-dark: hsl(
+    var(--brand-hue) calc(var(--brand-saturation) / 2)
+      calc(var(--brand-lightness) / 1.5)
+  );
+  --surface-dark: hsl(var(--brand-hue) 10% 15%);
+}
+
+:root {
+  color-scheme: light;
+  --brand: var(--brand-light);
+  --surface: var(--surface-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --brand: var(--brand-dark);
+    --surface: var(--surface-dark);
+  }
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --brand: var(--brand-light);
+  --surface: var(--surface-light);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --brand: var(--brand-dark);
+  --surface: var(--surface-dark);
+}
+
+/** DISPLAYING THE SUN OR MOON */
+
+:root {
+  color-scheme: light;
+  --light-icon: inline;
+  --dark-icon: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --light-icon: none;
+    --dark-icon: light;
+  }
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --light-icon: inline;
+  --dark-icon: none;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --light-icon: none;
+  --dark-icon: inline;
+}
+
+/** GENERAL STYLES */
+
+.light-icon {
+  display: var(--light-icon);
+}
+
+.dark-icon {
+  display: var(--dark-icon);
+}
+
+.container {
+  width: min(100% - 2rem, 50rem);
+  height: 100vh;
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+}
+
+/** STYLING THE BUTTON */
+
+body {
+  background-color: var(--surface);
+}
+
+.theme-toggle {
+  --size: 15rem;
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  inline-size: var(--size);
+  block-size: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline-offset: 5px;
+}
+
+.theme-toggle > svg {
+  inline-size: 100%;
+  block-size: 100%;
+  stroke-linecap: round;
+  color: var(--brand);
+}
